@@ -1,3 +1,3 @@
 # Discord chat bot
 
-It sure is.
+It sure is!
