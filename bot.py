@@ -9,17 +9,6 @@ import http.client
 import os
 import logging
 
-EMAIL = ""
-PASSWORD = ""
-BOT_ID = ""
-OWNER_ID = ""
-GOOGLE_API_KEY = ""
-SOUNDCLOUD_ID = ""
-WOLFRAM_ID = ""
-
-print ('Bot script is running.')
-print ('----------------------')
-
 def loadConfig ():
     t = list ()
 
@@ -27,13 +16,7 @@ def loadConfig ():
         t = f.read ().split ("\n")
     f.closed
     
-    EMAIL = t [0]
-    PASSWORD = t [1]
-    BOT_ID = t [2]
-    OWNER_ID = t [3]
-    GOOGLE_API_KEY = t [4]
-    SOUNDCLOUD_ID = t [5]
-    WOLFRAM_ID = t [6]
+    return (t)
     
 # ================================
 # == Core super important stuff ==
@@ -202,5 +185,17 @@ async def wolfram (msg):
 
 # Bot initialize
 if (__name__ == "__main__"):
-    loadConfig ()
+    print ('Bot script is running.')
+    print ('----------------------')
+    
+    t = loadConfig ()
+    
+    EMAIL = t [0]
+    PASSWORD = t [1]
+    BOT_ID = t [2]
+    OWNER_ID = t [3]
+    GOOGLE_API_KEY = t [4]
+    SOUNDCLOUD_ID = t [5]
+    WOLFRAM_ID = t [6]
+
     client.run (EMAIL, PASSWORD)
